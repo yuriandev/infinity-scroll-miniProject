@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   entry: './src/index.ts',
@@ -26,6 +27,11 @@ const config = {
     extensions: ['.ts', '.js'],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      title: 'test',
+      // Load a custom template (lodash by default)
+      template: 'index.html',
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.css',
     }),
